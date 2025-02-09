@@ -99,8 +99,8 @@ def main():
         r2 = r2_score(y_test, y_pred)
         r2_scores.append(r2)
         print(f"Alpha: {alpha} | MSE: {mean_squared_error(y_test, y_pred):.4f} | R²: {r2:.4f}")
-        for alpha_val, r2_val in zip(alphas, r2_scores):
-            plt.annotate(f"{r2_val:.2f}", (alpha_val, r2_val), textcoords="offset points", xytext=(0,10), ha='center')
+        #for alpha_val, r2_val in zip(alphas, r2_scores):
+        #    plt.annotate(f"{r2_val:.2f}", (alpha_val, r2_val), textcoords="offset points", xytext=(0,10), ha='center')
 
     best_alpha = alphas[r2_scores.index(max(r2_scores))]
     save_best_model(Lasso(alpha=best_alpha).fit(X_train, y_train), best_alpha, r2_scores)
